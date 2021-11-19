@@ -1,0 +1,19 @@
+{
+  "pikaxe":{
+    "cost": 50,
+    "cpc": 4,
+    "level": 0
+  },
+
+  "woekers":{
+    "cost": 100,
+    "cps": 4,
+    "level": 0
+  },
+
+  "diggers":{
+    "cost": 500,
+    "cps": 10,
+    "level": 0
+  }
+}
