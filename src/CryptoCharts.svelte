@@ -15,5 +15,5 @@
 </script>
 
 <h1>bitbay api data:</h1>
-<h1>{bat_rate}</h1>
-<h1>{btc_rate}</h1>
+<h1>BAT: {bat_rate}</h1>
+<h1>BTC: {btc_rate}</h1>
