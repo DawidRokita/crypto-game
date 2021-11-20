@@ -1,4 +1,8 @@
 <script>
+    import * as myjson from './upgrades.json';
+  
+   console.log(myjson);
+
     let bat_rate;
     let btc_rate;
     const api_url = "https://api.zonda.exchange/rest/trading/ticker";
