@@ -26,11 +26,17 @@
 
   let promise,
     jsonify = res => res.json(),
-    dataFetch = fetch(myjson).then(jsonify),
-    schemaFetch = fetch(schema).then(jsonify);
+    dataFetch = fetch(
+      // 'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/candlestick-chart-data.json'
+      myjson
+    ).then(jsonify),
+    schemaFetch = fetch(
+      // 'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/candlestick-chart-schema.json'
+      schema
+    ).then(jsonify);
 
   promise = Promise.all([dataFetch, schemaFetch]);
-
+  
   const getChartConfig = ([data, schema]) => {
     const fusionDataStore = new FusionCharts.DataStore(),
       fusionTable = fusionDataStore.createDataTable(data, schema);
@@ -43,21 +49,26 @@
       dataSource: {
         data: fusionTable,
         caption: {
-          text: 'Sales Analysis'
+          text: "Apple Inc. Stock Price"
         },
         subcaption: {
-          text: 'Grocery'
+          text: "Stock prices from January 1980 - November 2011"
         },
-        yAxis: [
+        yaxis: [
           {
             plot: {
-              value: 'Grocery Sales Value',
-              type: 'line'
+              value: {
+                open: "Open",
+                high: "High",
+                low: "Low",
+                close: "Close"
+              },
+              type: "candlestick"
             },
             format: {
-              prefix: '$'
+              prefix: "$"
             },
-            title: 'Sale Value'
+            title: "Stock Value"
           }
         ]
       }
