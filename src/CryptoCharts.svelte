@@ -95,6 +95,5 @@
 <style>
   #chart-container {
     width: 15vw;
-    height: 10vh;
   }
 </style>
