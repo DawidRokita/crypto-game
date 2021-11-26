@@ -20,80 +20,47 @@
   getData();
 
   //zmienic svelte charts na chart.js - wiecej mozliwosci (lepszy dla tego programu)
-
-  import FusionCharts from "fusioncharts";
-  import Timeseries from "fusioncharts/fusioncharts.timeseries";
-  import SvelteFC, { fcRoot } from "svelte-fusioncharts";
-
-  fcRoot(FusionCharts, Timeseries);
-
-  let promise,
-    jsonify = (res) => res.json(),
-    dataFetch = fetch(
-      "https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/candlestick-chart-data.json"
-      // myjson
-    ).then(jsonify),
-    schemaFetch = fetch(
-      "https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/candlestick-chart-schema.json"
-      // schema
-    ).then(jsonify);
-
-  promise = Promise.all([dataFetch, schemaFetch]);
-
-  const getChartConfig = ([data, schema]) => {
-    const fusionDataStore = new FusionCharts.DataStore(),
-      fusionTable = fusionDataStore.createDataTable(data, schema);
-
-    return {
-      type: "timeseries",
-      width: "100%",
-      height: 450,
-      renderAt: "chart-container",
-      dataSource: {
-        data: fusionTable,
-        caption: {
-          text: "Apple Inc. Stock Price",
-        },
-        subcaption: {
-          text: "Stock prices from January 1980 - November 2011",
-        },
-        yaxis: [
-          {
-            plot: {
-              value: {
-                open: "Open",
-                high: "High",
-                low: "Low",
-                close: "Close",
-              },
-              type: "candlestick",
-            },
-            format: {
-              prefix: "$",
-            },
-            title: "Stock Value",
-          },
-        ],
+  import {onMount} from 'svelte';
+  function createChart() {
+    const ctx = document.getElementById('myChart');
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: [1, 2, 3, 4, 5, 6],
+          datasets: [{
+              label: 'data',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  'rgb(255,215,0)'
+              ],
+              borderColor: [
+                  'rgb(255,215,0)'
+              ],
+              borderWidth: 2
+          }]
       },
-    };
-  };
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+}
+onMount(createChart);
+
 </script>
 
 <h1>bitbay api data:</h1>
 <h1>BAT: {bat_rate}</h1>
 <h1>BTC: {btc_rate}</h1>
-<div id="chart-container">
-  {#await promise}
-    <p>Fetching data and schema...</p>
-  {:then value}
-    <SvelteFC {...getChartConfig(value)} />
-  {:catch error}
-    <p>Something went wrong: {error.message}</p>
-  {/await}
-</div>
+<canvas id="myChart"></canvas>
 
 <style>
-  #chart-container {
-    width: 15vw;
+  #myChart{
+    background: white;
+    width: 100%;
+    height: 100;
   }
 </style>
