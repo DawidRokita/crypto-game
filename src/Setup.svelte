@@ -74,7 +74,7 @@
         <div class="click" on:click={count} />
     </div>
     <div class="upgradesheader">
-        <h1>UPGRADES</h1>
+        <!-- <h1>UPGRADES</h1> -->
     </div>
     <div class="upgrades">
         {#if money >= up1}
@@ -114,7 +114,7 @@
 <style>
     .clicker {
         grid-area: a;
-        background: #70707073;
+        /* background: #70707073; */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -122,7 +122,7 @@
     }
     .upgrades {
         grid-area: b;
-        background: #70707073;
+        /* background: #70707073; */
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -133,7 +133,7 @@
 
     .upgradesheader {
         grid-area: c;
-        background: #70707073;
+        /* background: #70707073; */
         /* margin: 0 30px 60px 0; */
         border-bottom-right-radius: 1rem;
         display: flex;
@@ -143,7 +143,7 @@
     }
     .options {
         grid-area: d;
-        background: #70707073;
+        /* background: #70707073; */
         /* margin: 30px 25px 0 25px; */
         display: flex;
         align-items: center;
@@ -152,7 +152,7 @@
     }
     .trades {
         grid-area: e;
-        background: #70707073;
+        /* background: #70707073; */
         /* margin: 10px 0 0 30px; */
         border-top-left-radius: 1rem;
         display: flex;
@@ -162,7 +162,7 @@
     }
     .tradesheader {
         grid-area: f;
-        background: #70707073;
+        /* background: #70707073; */
         /* margin: 0 0 60px 30px; */
         border-bottom-left-radius: 1rem;
         display: flex;
@@ -172,7 +172,7 @@
     }
     .money {
         grid-area: g;
-        background: #70707073;
+        /* background: #70707073; */
         /* margin: 0 25px 0 25px; */
         display: flex;
         align-items: center;
@@ -219,7 +219,7 @@
         border-bottom: 2px solid;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        color: white;
+        color: rgb(112, 112, 112);
     }
 
     button:hover {
@@ -248,6 +248,6 @@
         margin: 1rem 0 1rem 0;
     }
     p {
-        color: white;
+        color: rgb(92, 92, 92);
     }
 </style>
