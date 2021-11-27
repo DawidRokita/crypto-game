@@ -45,19 +45,42 @@
       },
     });
   }
+    async function createChart2() {
+    await getData();
+    const ctx = document.getElementById("myChart2");
+
+    const myChart2 = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: xlabels,
+        datasets: [
+          {
+            label: "data",
+            data: ratedata,
+            backgroundColor: "rgb(255,215,0)",
+            borderColor: "rgb(255,215,0)",
+            borderWidth: 2,
+            pointRadius: 0,
+          },
+        ],
+      },
+    });
+  }
   onMount(createChart);
+  onMount(createChart2);
 </script>
 
 <h1>bitbay api data:</h1>
 <h1>BAT: {bat_rate}</h1>
 <h1>BTC: {btc_rate}</h1>
 <canvas id="myChart" />
+<canvas id="myChart2" />
 
 <style>
-  #myChart {
-    background: rgb(146, 146, 146);
+  /* #myChart {
+    background: rgba(146, 146, 146, 0.534);
     width: 100%;
-    height: 100;
+    height: 10vh;
     margin: 20px;
-  }
+  } */
 </style>
