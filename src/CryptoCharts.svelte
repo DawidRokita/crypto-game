@@ -45,7 +45,7 @@
       },
     });
   }
-    async function createChart2() {
+  async function createChart2() {
     await getData();
     const ctx = document.getElementById("myChart2");
 
@@ -57,8 +57,8 @@
           {
             label: "data",
             data: ratedata,
-            backgroundColor: "rgb(255,215,0)",
-            borderColor: "rgb(255,215,0)",
+            backgroundColor: "#FFD700",
+            borderColor: "#FFD700",
             borderWidth: 2,
             pointRadius: 0,
           },
@@ -77,10 +77,15 @@
 <canvas id="myChart2" />
 
 <style>
-  /* #myChart {
-    background: rgba(146, 146, 146, 0.534);
-    width: 100%;
-    height: 10vh;
+  #myChart {
+    background: white;
     margin: 20px;
-  } */
+  }
+  #myChart2 {
+    background: white;
+    margin: 20px;
+  }
+  h1 {
+    color: white;
+  }
 </style>

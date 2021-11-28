@@ -104,7 +104,7 @@
         </div>
     </div>
     <div class="tradesheader">
-        <h1>TRADES</h1>
+        <!-- <h1>TRADES</h1> -->
     </div>
     <div class="trades">
         <Charts />
@@ -195,12 +195,12 @@
     }
     h1 {
         font-size: xx-large;
-        color: #000000;
+        color: #ffd700;
     }
     .click {
         width: 10rem;
         height: 10rem;
-        background: #353535;
+        background: #ffd700;
         border-radius: 4rem;
         display: flex;
         justify-content: center;
@@ -219,11 +219,11 @@
         border-bottom: 2px solid;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        color: rgb(112, 112, 112);
+        color: #ffd9009d;
     }
 
     button:hover {
-        background: #353535;
+        background: #ffd700;
     }
 
     .optleft {
@@ -243,11 +243,11 @@
     .opt {
         width: 80%;
         height: 4rem;
-        background: #3f3f3f;
+        background: #ffd9009d;
         margin: 10px;
         margin: 1rem 0 1rem 0;
     }
     p {
-        color: rgb(92, 92, 92);
+        color: #ffd9009d;
     }
 </style>
