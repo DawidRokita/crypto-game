@@ -124,7 +124,7 @@
         grid-area: b;
         /* background: #70707073; */
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
         /* margin: 10px 30px 0 0; */
@@ -148,7 +148,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: row;
     }
     .trades {
         grid-area: e;
@@ -210,20 +210,20 @@
         background: #292929;
     }
     button {
-        width: 95%;
+        width: 85%;
         height: 3rem;
-        margin: 10px;
-        background: rgba(255, 253, 253, 0.322);
+        margin-top: 30px;
+        background: #ffd9009d;
         color: none;
         border: 0;
         border-bottom: 2px solid;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        color: #ffd9009d;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #ffffff;
     }
 
     button:hover {
-        background: #ffd700;
+        background: #99820088;
     }
 
     .optleft {
@@ -231,6 +231,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        margin-left: 2.5rem;
     }
     .optright {
         width: 50%;
@@ -238,14 +239,16 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
+        margin-right: 2.5rem;
     }
 
     .opt {
-        width: 80%;
-        height: 4rem;
+        width: 75%;
+        height: 3.5rem;
         background: #ffd9009d;
         margin: 10px;
         margin: 1rem 0 1rem 0;
+        border-radius: 5px;
     }
     p {
         color: #ffd9009d;
