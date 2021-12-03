@@ -1,6 +1,7 @@
 <script>
     import Timer from "./Timer.svelte";
     import Charts from "./CryptoCharts.svelte";
+// import { set_style } from "svelte/internal";
 
     //get cookies
     let cookiemoney = parseInt(document.cookie.split("x")[1]);
@@ -61,6 +62,45 @@
         money -= up2;
         up2 += up2;
     }
+
+    function optClick(option){
+        const opt = document.querySelector('.optleft');
+        const opt2 = document.querySelector('.optright');
+        const back = document.querySelector('.back');
+        const stats = document.querySelector('.statsOpt');
+        const info = document.querySelector('.infoOpt');
+        const setting = document.querySelector('.settingOpt');
+        const guide = document.querySelector('.guideOpt');
+        opt.style.display = "none";
+        opt2.style.display = "none";
+        back.style.display = "block";
+        console.log({option});
+        switch(option){
+            case 'stats': stats.style.display="block"; break;
+            case 'info': info.style.display="block"; break;
+            case 'options': setting.style.display="block"; break;
+            case 'guide': guide.style.display="block"; break;
+            default: ;
+        }
+    }
+
+    function goBack(){
+        const opt = document.querySelector('.optleft');
+        const opt2 = document.querySelector('.optright');
+        const back = document.querySelector('.back');
+        const stats = document.querySelector('.statsOpt');
+        const info = document.querySelector('.infoOpt');
+        const setting = document.querySelector('.settingOpt');
+        const guide = document.querySelector('.guideOpt');
+        opt.style.display = "flex";
+        opt2.style.display = "flex";
+        back.style.display = "none";
+        stats.style.display = "none";
+        info.style.display = "none";
+        setting.style.display = "none";
+        guide.style.display = "none";
+    }
+
 </script>
 
 <Timer callback={adds} />
@@ -94,14 +134,19 @@
         {/if}
     </div>
     <div class="options">
+        <div class="statsOpt">stats</div>
+        <div class="infoOpt">info</div>
+        <div class="settingOpt">settings</div>
+        <div class="guideOpt">guide</div>
         <div class="optleft">
-            <div class="opt stats">STATS</div>
-            <div class="opt info">INFO</div>
+            <div class="opt stats" on:click={()=>{optClick('stats');}}>STATS</div>
+            <div class="opt info" on:click={()=>{optClick('info');}}>INFO</div>
         </div>
         <div class="optright">
-            <div class="opt settings">OPTIONS</div>
-            <div class="opt guide">GUIDE</div>
+            <div class="opt settings" on:click={()=>{optClick('options');}}>OPTIONS</div>
+            <div class="opt guide" on:click={()=>{optClick('guide');}}>GUIDE</div>
         </div>
+        <div class="back" on:click={goBack}>back</div>
     </div>
     <div class="tradesheader">
         <!-- <h1>TRADES</h1> -->
@@ -247,10 +292,27 @@
         height: 3.5rem;
         background: #ffd9009d;
         margin: 10px;
-        margin: 1rem 0 1rem 0;
+        /* margin: 1rem 0 1rem 0; */
         border-radius: 5px;
+        text-align: center;
+    }
+    .opt:hover{
+        background: #ffd900;
     }
     p {
         color: #ffd9009d;
     }
+    .back{
+        display: none;
+        background: white;
+        width: 5rem;
+        height: 3rem;
+    }
+
+    .statsOpt, .infoOpt, .settingOpt, .guideOpt{
+        width: 40rem;
+        height: 8rem;
+        background: yellow;
+        display:none;
+    } 
 </style>

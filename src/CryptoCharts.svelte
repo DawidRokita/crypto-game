@@ -86,7 +86,6 @@
     background: white;
     width: 75%;
     margin-top: 1rem;
-
   }
   h1 {
     color: white;
