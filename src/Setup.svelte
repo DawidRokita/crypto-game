@@ -1,6 +1,10 @@
 <script>
     import Timer from "./Timer.svelte";
     import Charts from "./CryptoCharts.svelte";
+    import Stats from "../files/stats.svelte";
+    import Info from "../files/info.svelte";
+    import Settings from "../files/settings.svelte";
+    import Guide from "../files/guide.svelte";
     // import { set_style } from "svelte/internal";
 
     //get cookies
@@ -122,10 +126,10 @@
             <div class="opt guide" on:click={() => {optClick("guide");}}>GUIDE</div>
         </div>
         <div class="subopt">
-            <div class="statsOpt">stats</div>
-            <div class="infoOpt">info</div>
-            <div class="settingOpt">settings</div>
-            <div class="guideOpt">guide</div>
+            <div class="statsOpt"><Stats/></div>
+            <div class="infoOpt"><Info/></div>
+            <div class="settingOpt"><Settings/></div>
+            <div class="guideOpt"><Guide/></div>
         </div>
     </div>
     <div class="tradesheader">
