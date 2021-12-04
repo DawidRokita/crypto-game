@@ -39,7 +39,7 @@
             backgroundColor: "rgb(255,215,0)",
             borderColor: "rgb(255,215,0)",
             borderWidth: 2,
-            pointRadius: 0,
+            pointRadius: 0,  
           },
         ],
       },
@@ -78,12 +78,12 @@
 
 <style>
   #myChart {
-    background: white;
+    background: #36261B;
     width: 75%;
     margin-top: 1rem;
   }
   #myChart2 {
-    background: white;
+    background: #36261B;
     width: 75%;
     margin-top: 1rem;
   }

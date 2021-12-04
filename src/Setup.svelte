@@ -219,13 +219,13 @@
         align-items: center;
     }
     .click:hover {
-        background: #292929;
+        background: #855E42;
     }
     button {
         width: 85%;
         height: 3rem;
         margin-top: 30px;
-        background: #ffd9009d;
+        background: #855E42;
         color: none;
         border: 0;
         border-bottom: 2px solid;
@@ -234,7 +234,7 @@
         color: #ffffff;
     }
     button:hover {
-        background: #99820088;
+        background: #6b4b34;
     }
     .optleft {
         width: 90%;
@@ -250,13 +250,13 @@
     .opt {
         width: 25%;
         height: 2.5rem;
-        background: #ffd9009d;
+        background: #855E42;
         margin: 10px 2px 0 2px;
         border-radius: 5px;
         text-align: center;
     }
     .opt:hover {
-        background: #ffd900;
+        background: #6b4b34;
     }
     p {
         color: #ffd9009d;
@@ -264,7 +264,7 @@
     .statsOpt, .infoOpt, .settingOpt, .guideOpt {
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.411);
+        /* background: rgba(255, 255, 255, 0.411); */
         display: none;
     }
 </style>
