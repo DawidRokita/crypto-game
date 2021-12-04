@@ -1,7 +1,7 @@
 <script>
     import Timer from "./Timer.svelte";
     import Charts from "./CryptoCharts.svelte";
-// import { set_style } from "svelte/internal";
+    // import { set_style } from "svelte/internal";
 
     //get cookies
     let cookiemoney = parseInt(document.cookie.split("x")[1]);
@@ -27,17 +27,7 @@
     }
 
     function setCookie() {
-        document.cookie =
-            "x" +
-            money +
-            "x" +
-            addmoney +
-            "x" +
-            addmoneyS +
-            "x" +
-            up1 +
-            "x" +
-            up2;
+        document.cookie = "x" + money + "x" + addmoney + "x" + addmoneyS + "x" + up1 + "x" + up2;
     }
 
     function count() {
@@ -63,44 +53,40 @@
         up2 += up2;
     }
 
-    function optClick(option){
-        const opt = document.querySelector('.optleft');
-        const opt2 = document.querySelector('.optright');
-        const back = document.querySelector('.back');
-        const stats = document.querySelector('.statsOpt');
-        const info = document.querySelector('.infoOpt');
-        const setting = document.querySelector('.settingOpt');
-        const guide = document.querySelector('.guideOpt');
-        opt.style.display = "none";
-        opt2.style.display = "none";
-        back.style.display = "block";
-        console.log({option});
-        switch(option){
-            case 'stats': stats.style.display="block"; break;
-            case 'info': info.style.display="block"; break;
-            case 'options': setting.style.display="block"; break;
-            case 'guide': guide.style.display="block"; break;
-            default: ;
+    function optClick(option) {
+        const stats = document.querySelector(".statsOpt");
+        const info = document.querySelector(".infoOpt");
+        const setting = document.querySelector(".settingOpt");
+        const guide = document.querySelector(".guideOpt");
+        console.log({ option });
+        switch (option) {
+            case "stats":
+                stats.style.display = "block";
+                info.style.display = "none";
+                setting.style.display = "none";
+                guide.style.display = "none";
+                break;
+            case "info":
+                stats.style.display = "none";
+                info.style.display = "block";
+                setting.style.display = "none";
+                guide.style.display = "none";
+                break;
+            case "options":
+                stats.style.display = "none";
+                info.style.display = "none";
+                setting.style.display = "block";
+                guide.style.display = "none";
+                break;
+            case "guide":
+                stats.style.display = "none";
+                info.style.display = "none";
+                setting.style.display = "none";
+                guide.style.display = "block";
+                break;
+            default:
         }
     }
-
-    function goBack(){
-        const opt = document.querySelector('.optleft');
-        const opt2 = document.querySelector('.optright');
-        const back = document.querySelector('.back');
-        const stats = document.querySelector('.statsOpt');
-        const info = document.querySelector('.infoOpt');
-        const setting = document.querySelector('.settingOpt');
-        const guide = document.querySelector('.guideOpt');
-        opt.style.display = "flex";
-        opt2.style.display = "flex";
-        back.style.display = "none";
-        stats.style.display = "none";
-        info.style.display = "none";
-        setting.style.display = "none";
-        guide.style.display = "none";
-    }
-
 </script>
 
 <Timer callback={adds} />
@@ -114,42 +100,35 @@
         <div class="click" on:click={count} />
     </div>
     <div class="upgradesheader">
-        <!-- <h1>UPGRADES</h1> -->
     </div>
     <div class="upgrades">
         {#if money >= up1}
             <button on:click={upgrade}>kup ulepszenie +4 za {up1}</button>
         {:else}
-            <button on:click={upgrade} disabled
-                >kup ulepszenie +4 za {up1}</button
-            >
+            <button on:click={upgrade} disabled>kup ulepszenie +4 za {up1}</button>
         {/if}
 
         {#if money >= up2}
             <button on:click={upgrade2}>kup ulepszenie +4/s za {up2}</button>
         {:else}
-            <button on:click={upgrade2} disabled
-                >kup ulepszenie +4/s za {up2}</button
-            >
+            <button on:click={upgrade2} disabled>kup ulepszenie +4/s za {up2}</button>
         {/if}
     </div>
     <div class="options">
-        <div class="statsOpt">stats</div>
-        <div class="infoOpt">info</div>
-        <div class="settingOpt">settings</div>
-        <div class="guideOpt">guide</div>
         <div class="optleft">
-            <div class="opt stats" on:click={()=>{optClick('stats');}}>STATS</div>
-            <div class="opt info" on:click={()=>{optClick('info');}}>INFO</div>
+            <div class="opt stats" on:click={() => {optClick("stats");}}>STATS</div>
+            <div class="opt info" on:click={() => {optClick("info");}}>INFO</div>
+            <div class="opt settings" on:click={() => {optClick("options");}}>OPTIONS</div>
+            <div class="opt guide" on:click={() => {optClick("guide");}}>GUIDE</div>
         </div>
-        <div class="optright">
-            <div class="opt settings" on:click={()=>{optClick('options');}}>OPTIONS</div>
-            <div class="opt guide" on:click={()=>{optClick('guide');}}>GUIDE</div>
+        <div class="subopt">
+            <div class="statsOpt">stats</div>
+            <div class="infoOpt">info</div>
+            <div class="settingOpt">settings</div>
+            <div class="guideOpt">guide</div>
         </div>
-        <div class="back" on:click={goBack}>back</div>
     </div>
     <div class="tradesheader">
-        <!-- <h1>TRADES</h1> -->
     </div>
     <div class="trades">
         <Charts />
@@ -159,27 +138,20 @@
 <style>
     .clicker {
         grid-area: a;
-        /* background: #70707073; */
         display: flex;
         align-items: center;
         justify-content: center;
-        /* margin: 0 25px 7rem 25px; */
     }
     .upgrades {
         grid-area: b;
-        /* background: #70707073; */
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
-        /* margin: 10px 30px 0 0; */
         border-top-right-radius: 1rem;
     }
-
     .upgradesheader {
         grid-area: c;
-        /* background: #70707073; */
-        /* margin: 0 30px 60px 0; */
         border-bottom-right-radius: 1rem;
         display: flex;
         align-items: center;
@@ -188,17 +160,13 @@
     }
     .options {
         grid-area: d;
-        /* background: #70707073; */
-        /* margin: 30px 25px 0 25px; */
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: row;
+        justify-content: flex-start;
+        flex-direction: column;
     }
     .trades {
         grid-area: e;
-        /* background: #70707073; */
-        /* margin: 10px 0 0 30px; */
         border-top-left-radius: 1rem;
         display: flex;
         align-items: center;
@@ -207,8 +175,6 @@
     }
     .tradesheader {
         grid-area: f;
-        /* background: #70707073; */
-        /* margin: 0 0 60px 30px; */
         border-bottom-left-radius: 1rem;
         display: flex;
         align-items: center;
@@ -217,14 +183,11 @@
     }
     .money {
         grid-area: g;
-        /* background: #70707073; */
-        /* margin: 0 25px 0 25px; */
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
     }
-
     .container {
         width: 100%;
         height: 100vh;
@@ -232,7 +195,7 @@
         background-image: url("../img/bg.png");
         background-size: 100% 100%;
         grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 2fr 4fr 2fr;
+        grid-template-rows: 2fr 4fr 2.2fr;
         grid-template-areas:
             "c g f"
             "b a e"
@@ -266,53 +229,38 @@
         border-bottom-right-radius: 5px;
         color: #ffffff;
     }
-
     button:hover {
         background: #99820088;
     }
-
     .optleft {
-        width: 50%;
+        width: 90%;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 2.5rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
     }
-    .optright {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
-        margin-right: 2.5rem;
+    .subopt {
+        width: 90%;
+        height: 100%;
     }
-
     .opt {
-        width: 75%;
-        height: 3.5rem;
+        width: 25%;
+        height: 2.5rem;
         background: #ffd9009d;
-        margin: 10px;
-        /* margin: 1rem 0 1rem 0; */
+        margin: 10px 2px 0 2px;
         border-radius: 5px;
         text-align: center;
     }
-    .opt:hover{
+    .opt:hover {
         background: #ffd900;
     }
     p {
         color: #ffd9009d;
     }
-    .back{
+    .statsOpt, .infoOpt, .settingOpt, .guideOpt {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.411);
         display: none;
-        background: white;
-        width: 5rem;
-        height: 3rem;
     }
-
-    .statsOpt, .infoOpt, .settingOpt, .guideOpt{
-        width: 40rem;
-        height: 8rem;
-        background: yellow;
-        display:none;
-    } 
 </style>
