@@ -31,7 +31,17 @@
     }
 
     function setCookie() {
-        document.cookie = "x" + money + "x" + addmoney + "x" + addmoneyS + "x" + up1 + "x" + up2;
+        document.cookie =
+            "x" +
+            money +
+            "x" +
+            addmoney +
+            "x" +
+            addmoneyS +
+            "x" +
+            up1 +
+            "x" +
+            up2;
     }
 
     function count() {
@@ -103,37 +113,67 @@
     <div class="clicker">
         <div class="click" on:click={count} />
     </div>
-    <div class="upgradesheader">
-    </div>
+    <div class="upgradesheader" />
     <div class="upgrades">
         {#if money >= up1}
             <button on:click={upgrade}>kup ulepszenie +4 za {up1}</button>
         {:else}
-            <button on:click={upgrade} disabled>kup ulepszenie +4 za {up1}</button>
+            <button on:click={upgrade} disabled
+                >kup ulepszenie +4 za {up1}</button
+            >
         {/if}
 
         {#if money >= up2}
             <button on:click={upgrade2}>kup ulepszenie +4/s za {up2}</button>
         {:else}
-            <button on:click={upgrade2} disabled>kup ulepszenie +4/s za {up2}</button>
+            <button on:click={upgrade2} disabled
+                >kup ulepszenie +4/s za {up2}</button
+            >
         {/if}
     </div>
     <div class="options">
         <div class="optleft">
-            <div class="opt stats" on:click={() => {optClick("stats");}}>STATS</div>
-            <div class="opt info" on:click={() => {optClick("info");}}>INFO</div>
-            <div class="opt settings" on:click={() => {optClick("options");}}>OPTIONS</div>
-            <div class="opt guide" on:click={() => {optClick("guide");}}>GUIDE</div>
+            <div
+                class="opt stats"
+                on:click={() => {
+                    optClick("stats");
+                }}
+            >
+                STATS
+            </div>
+            <div
+                class="opt info"
+                on:click={() => {
+                    optClick("info");
+                }}
+            >
+                INFO
+            </div>
+            <div
+                class="opt settings"
+                on:click={() => {
+                    optClick("options");
+                }}
+            >
+                OPTIONS
+            </div>
+            <div
+                class="opt guide"
+                on:click={() => {
+                    optClick("guide");
+                }}
+            >
+                GUIDE
+            </div>
         </div>
         <div class="subopt">
-            <div class="statsOpt"><Stats/></div>
-            <div class="infoOpt"><Info/></div>
-            <div class="settingOpt"><Settings/></div>
-            <div class="guideOpt"><Guide/></div>
+            <div class="statsOpt"><Stats /></div>
+            <div class="infoOpt"><Info /></div>
+            <div class="settingOpt"><Settings /></div>
+            <div class="guideOpt"><Guide /></div>
         </div>
     </div>
-    <div class="tradesheader">
-    </div>
+    <div class="tradesheader" />
     <div class="trades">
         <Charts />
     </div>
@@ -210,22 +250,24 @@
         color: #ffd700;
     }
     .click {
-        width: 10rem;
-        height: 10rem;
-        background: #ffd700;
+        width: 15rem;
+        height: 15rem;
+        background-image: url("../img/click.png");
+        background-size: 100% 100%;
         border-radius: 4rem;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .click:hover {
-        background: #855E42;
+        width: 17rem;
+        height: 17rem;
     }
     button {
         width: 85%;
         height: 3rem;
         margin-top: 30px;
-        background: #855E42;
+        background: #855e42;
         color: none;
         border: 0;
         border-bottom: 2px solid;
@@ -250,7 +292,7 @@
     .opt {
         width: 25%;
         height: 2.5rem;
-        background: #855E42;
+        background: #855e42;
         margin: 10px 2px 0 2px;
         border-radius: 5px;
         text-align: center;
@@ -261,7 +303,10 @@
     p {
         color: #ffd9009d;
     }
-    .statsOpt, .infoOpt, .settingOpt, .guideOpt {
+    .statsOpt,
+    .infoOpt,
+    .settingOpt,
+    .guideOpt {
         width: 100%;
         height: 100%;
         /* background: rgba(255, 255, 255, 0.411); */
