@@ -47,6 +47,7 @@
     function count() {
         money += addmoney;
         setCookie();
+
     }
     function upgrade() {
         addmoney += 4;
@@ -250,18 +251,19 @@
         color: #ffd700;
     }
     .click {
-        width: 15rem;
-        height: 15rem;
-        background-image: url("../img/click.png");
+        width: 10rem;
+        height: 10rem;
+        background-image: url("../img/click1.png");
         background-size: 100% 100%;
-        border-radius: 4rem;
+        border-radius: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .click:hover {
-        width: 17rem;
-        height: 17rem;
+        /* width: 12rem;
+        height: 12rem; */
+        background-image: url("../img/click2.png");
     }
     button {
         width: 85%;
