@@ -21,6 +21,7 @@
     let addmoneyS = 0;
     let open = true;
     let seconds = 0;
+    let a = 1;
 
     if (document.cookie) {
         money = cookiemoney;
@@ -47,7 +48,11 @@
     function count() {
         money += addmoney;
         setCookie();
-
+        const click = document.querySelector(".click");
+        click.style.backgroundImage = a
+            ? "url('../img/click2.png')"
+            : "url('../img/click1.png')";
+        a = !a;
     }
     function upgrade() {
         addmoney += 4;
@@ -55,7 +60,7 @@
         up1 += up1;
     }
 
-    const toggle = () => open;
+    // const toggle = () => open;
 
     function adds() {
         money += addmoneyS;
@@ -260,11 +265,11 @@
         justify-content: center;
         align-items: center;
     }
-    .click:hover {
-        /* width: 12rem;
-        height: 12rem; */
+    /* .click:hover {
+        width: 12rem;
+        height: 12rem;
         background-image: url("../img/click2.png");
-    }
+    } */
     button {
         width: 85%;
         height: 3rem;

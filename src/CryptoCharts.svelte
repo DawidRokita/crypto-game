@@ -1,6 +1,7 @@
 <script>
   import * as myjson from "./test.json";
-  console.log(myjson.default["1"]["time"]);
+
+  console.log(myjson.default["1"]["rate"]);
 
   let bat_rate;
   let btc_rate;
@@ -13,6 +14,15 @@
   }
 
   getData();
+
+  function setRandomData() {
+    for (let j = 1; j <= 30; j++) {
+      myjson.default[j]["rate"] = Math.floor(Math.random() * 100);
+    }
+  }
+  setRandomData();
+  console.log(myjson.default["1"]["rate"]);
+  // setInterval(setData(), 500);
 
   const xlabels = []; //x data chart
   const ratedata = []; //y data charts
@@ -39,7 +49,7 @@
             backgroundColor: "rgb(255,215,0)",
             borderColor: "rgb(255,215,0)",
             borderWidth: 2,
-            pointRadius: 0,  
+            pointRadius: 0,
           },
         ],
       },
@@ -78,12 +88,12 @@
 
 <style>
   #myChart {
-    background: #36261B;
+    background: #36261b;
     width: 75%;
     margin-top: 1rem;
   }
   #myChart2 {
-    background: #36261B;
+    background: #36261b;
     width: 75%;
     margin-top: 1rem;
   }
