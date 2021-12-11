@@ -318,5 +318,8 @@
         height: 100%;
         /* background: rgba(255, 255, 255, 0.411); */
         display: none;
+        background: #855e428e;
+        border-radius: 5px;
+        text-align: center;
     }
 </style>
